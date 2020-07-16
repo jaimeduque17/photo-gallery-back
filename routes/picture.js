@@ -11,7 +11,6 @@ router.delete("/picture/:pictureId", remove);
 router.get("/pictures", list);
 router.get("/pictures/search", listSearch);
 router.get("/pictures/related/:pictureId", listRelated);
-router.get("/pictures/albums", listAlbums);
 router.post("/pictures/by/search", listBySearch);
 router.get("/picture/photo/:pictureId", photo);
 
