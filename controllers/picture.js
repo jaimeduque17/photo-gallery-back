@@ -95,15 +95,6 @@ exports.update = (req, res) => {
             });
         }
 
-        // check for all fields
-        // const { name, album } = fields;
-
-        // if (!name || ! || !album) {
-        //     return res.status(400).json({
-        //         err: "All fields are required"
-        //     });
-        // }
-
         let picture = req.picture;
         picture = _.extend(picture, fields);
 
@@ -133,9 +124,6 @@ exports.update = (req, res) => {
     });
 };
 
-// sell / arrival
-// by sell = /pictures?sortBy=sold&order=desc&limit=4
-// by arrival = /pictures?sortBy=createdAt&order=desc&limit=4
 // if no params are sent, then all pictures are returned
 exports.list = (req, res) => {
     let order = req.query.order ? req.query.order : 'asc';
@@ -226,9 +214,7 @@ exports.listBySearch = (req, res) => {
 
     for (let key in req.body.filters) {
         if (req.body.filters[key].length > 0) {
-            if (key === "price") {
-                // gte -  greater than price [0-10]
-                // lte - less than
+            if (key === "filt") {
                 findArgs[key] = {
                     $gte: req.body.filters[key][0],
                     $lte: req.body.filters[key][1]
